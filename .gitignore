@@ -1,0 +1,6 @@
+__pycache__
+.venv
+ipl_json
+.ipynb
+.env
+ipl_data.csv
