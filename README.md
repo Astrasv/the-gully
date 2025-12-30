@@ -21,7 +21,6 @@ The dataset is available public - [Kaggle Link](https://www.kaggle.com/datasets/
 2. **Set up environment variables:**
    ```bash
    cp .env.example .env
-   # Edit .env and add your GROQ_API_KEY
    ```
 
 3. **Create Virtual Environment:**
