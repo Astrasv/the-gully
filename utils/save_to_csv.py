@@ -9,7 +9,7 @@ def save_to_csv(rows, filename="ipl_data.csv"):
 
         try:
             with open(filename, mode='w', newline='', encoding='utf-8') as f:
-                writer = csv.DictWriter(f, fieldnames=headers)
+                writer = csv.DictWriter(f, fieldnames=headers, restval='')
                 writer.writeheader()
                 writer.writerows(rows)
             print(f"Successfully saved {len(rows)} rows to {filename}")

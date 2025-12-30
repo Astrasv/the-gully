@@ -1,7 +1,7 @@
 import json
 import psycopg2
 from psycopg2 import extras
-from db.ball_logics import BallLogics
+from .ball_logics import BallLogics
 import os
 from utils.file_to_json import file_to_json
 from utils.save_to_csv import save_to_csv
@@ -39,11 +39,12 @@ class DataPreprocessor:
 
                     # Combine all data into one flat dictionary
                     row = {
+                        "match_id": data.get("match_id"),
                         **logics.match_meta(),
                         "innings_val": innings_idx + 1,
                         "batting_team": batting_team,
-                        "over": over_num,
-                        "ball": ball,
+                        "ball_over": over_num,
+                        "ball_number": ball,
                         **logics.handle_ball_details(delivery),
                         **logics.handle_extras(delivery),
                         **logics.handle_wickets(delivery),
@@ -58,6 +59,7 @@ class DataPreprocessor:
         for match_file in os.listdir(self.data_path):
             match_file = os.path.join(self.data_path, match_file)
             data = file_to_json(match_file)
+            data["match_id"] = num
             self.flatten_match(data)
             print(f"Match {num} populated ")
             num += 1
@@ -68,3 +70,11 @@ if __name__ == "__main__":
     data_prep = DataPreprocessor("ipl_json")
     data_prep.flatten_all_matches()
     
+
+    # # Single match data for testing
+    
+    # data = file_to_json("ipl_json/335982.json")
+    # data["match_id"] = 1
+    # data_prep = DataPreprocessor("ipl_json")
+    # data_prep.flatten_match(data)
+    # save_to_csv(data_prep.rows, "single_match.csv") 

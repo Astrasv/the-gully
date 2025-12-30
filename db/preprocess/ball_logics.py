@@ -3,12 +3,23 @@ class BallLogics:
         self.info = info
         self.data = data
 
+    def clean_season(self,season):
+        season = str(season)
+        if "/" in season:
+            seasons = season.split("/")
+            seasons[1] = int(seasons[0][:2] + seasons[1][:])
+            seasons[0] = int(seasons[0])
+        else:
+            seasons = [int(season)]
+        
+        return seasons
+
     def match_meta(self):
         match_meta = {
             "city": self.info.get("city"),
             "dates": self.info.get("dates", []),  # Array
             "match_number": self.info.get("event", {}).get("match_number"),
-            "season": self.info.get("season"),
+            "season": self.clean_season(self.info.get("season")),
             "venue": self.info.get("venue"),
             "team_a": self.info.get("teams", [None, None])[0],
             "team_b": self.info.get("teams", [None, None])[1],
@@ -35,7 +46,7 @@ class BallLogics:
         wicket_player_out = wickets[0].get("player_out") if wickets else None
         wicket_kind = wickets[0].get("kind") if wickets else None
         wicket_fielders = (
-            [f.get("name") for f in wickets[0].get("fielders", [])] if wickets else []
+            [f.get("name") for f in wickets[0].get("fielders", [])] if wickets else None
         )
 
         keys = ["wicket_player_out", "wicket_kind", "wicket_fielders"]
