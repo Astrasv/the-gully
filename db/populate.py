@@ -10,10 +10,9 @@ import utils.columns as cols
 
 
 class DatabasePopulator:
-    def __init__(self,db_params, csv_file_path):
+    def __init__(self, db_params, csv_file_path):
         self.db_params = db_params
         self.csv_file_path = csv_file_path
-
 
     def clean_rows(self, df):
         print("Preprocessing rows for database...")
@@ -29,14 +28,14 @@ class DatabasePopulator:
                     clean_row.append(None)
                 else:
                     clean_row.append(x)
-            
+
             values.append(tuple(clean_row))
 
         return values
 
     def upload_csv_to_postgres(self):
         print(f"Loading {self.csv_file_path}...")
-        
+
         df = pd.read_csv(self.csv_file_path, dtype=str, low_memory=False)
 
         # Convert list-like strings into actual Python lists for Postgres Array types
@@ -46,7 +45,7 @@ class DatabasePopulator:
 
         conn = None
         try:
-            
+
             conn = psycopg2.connect(**self.db_params)
             cur = conn.cursor()
 
@@ -56,10 +55,10 @@ class DatabasePopulator:
 
             # Prepare Template with Casts
             placeholders = ["%s"] * len(columns)
-            placeholders[2] = "%s::DATE[]"      # 'dates'
-            placeholders[4] = "%s::INTEGER[]"   # 'season'
-            placeholders[13] = "%s::TEXT[]"     # 'player_of_match'
-            placeholders[33] = "%s::TEXT[]"     # 'wicket_fielders'
+            placeholders[2] = "%s::DATE[]"  # 'dates'
+            placeholders[4] = "%s::INTEGER[]"  # 'season'
+            placeholders[13] = "%s::TEXT[]"  # 'player_of_match'
+            placeholders[33] = "%s::TEXT[]"  # 'wicket_fielders'
 
             template = "(" + ",".join(placeholders) + ")"
             query = f"INSERT INTO ipl_ball_by_ball ({','.join(columns)}) VALUES %s"
@@ -78,6 +77,7 @@ class DatabasePopulator:
             if conn:
                 cur.close()
                 conn.close()
+
 
 if __name__ == "__main__":
     db_params = DatabaseConfig().as_dict()
