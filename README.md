@@ -62,4 +62,4 @@ The dataset is available public curated by me - [Kaggle Link](https://www.kaggle
    ```
 
 ## Dummy Frontend Sample Output
-![Sample Output](assets\image.png)
+![Sample Output](assets/image.png)
