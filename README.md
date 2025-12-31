@@ -1,15 +1,24 @@
 # The Gully 
 
+[WORK IN PROGRESS - PITCH IS GETTING READY]
 
-The dataset is available public - [Kaggle Link](https://www.kaggle.com/datasets/astrasv247/ipl-dataset-2008-2025-ball-by-ball/data)
+🏏 Ask anything about IPL history in plain English and get answers straight from the ball-by-ball database.
 
+**"How many wides did Pathirana bowl?"**  
+**"How many reviews did Nitin Menon give favouring MI?"**  
+**"How many sixes did MSD hit in death overs in entire IPL history"**
+
+You name it we answer it
+
+This project turns a single denormalized PostgreSQL table containing IPL ball-by-ball data into a natural-language interface — no SQL knowledge required.
+
+*Fun Fact:*
+The most common way of taking wickets in death overs (16–20 overs) is by **caught dismissals**, accounting for **2,671 wickets**. This method dominates wicket-taking in the final five overs of IPL matches.
+
+The dataset is available public curated by me - [Kaggle Link](https://www.kaggle.com/datasets/astrasv247/ipl-dataset-2008-2025-ball-by-ball/data)
 
 
 ## Run the preprocessing pipeline
-
-
-
-
 
 1. **Clone and navigate to the project:**
    ```bash
@@ -36,12 +45,17 @@ The dataset is available public - [Kaggle Link](https://www.kaggle.com/datasets/
    ```
 5. **Run the pipeline**
 
+   For CLI version
     ```bash
     python main.py
    ```
-This project is based on IPL cricket. Currently this includes data preprocessing steps for a completely denormalized ball by ball IPL data. The projects aims for much more. 
 
+   or 
 
+   For seeing current dummy frontend
+   ```bash
+    python -m strealit run frontend_dummy/app.py
+   ```
 
-Will be revealed soon
-
+## Dummy Frontend Sample Output
+![Sample Output](assets\image.png)
