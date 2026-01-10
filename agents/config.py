@@ -16,10 +16,6 @@ class AgentsConfig:
         self.reasoning_format="parsed"
         self.timeout=None
         self.max_retries=2
-    
-
-
-
 
     def as_dict(self):
         return vars(self)

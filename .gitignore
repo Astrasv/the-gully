@@ -5,3 +5,5 @@ ipl_json
 .env
 ipl_data.csv
 single_match.csv
+.ruff_cache
+.pytest_cache

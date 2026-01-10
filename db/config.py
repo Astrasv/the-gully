@@ -4,10 +4,10 @@ from dotenv import load_dotenv
 class DatabaseConfig:
     def __init__(self):
         load_dotenv()
-        self.host = "localhost"
-        self.database = "ipl_database"
-        self.user = os.getenv("database_username")
-        self.password = os.getenv("database_password")
+        self.host = os.getenv("POSTGRES_SERVER")
+        self.database = os.getenv("POSTGRES_DB")
+        self.user = os.getenv("POSTGRES_USER")
+        self.password = os.getenv("POSTGRES_PASSWORD")
 
         if not all([self.user, self.password]):
             raise ValueError("Database credentials not set in environment variables")

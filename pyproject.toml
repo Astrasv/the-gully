@@ -1,0 +1,18 @@
+[project]
+name = "gully"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi[standard]>=0.128.0",
+    "langchain-community>=0.4.1",
+    "langchain-groq>=1.1.1",
+    "prompt-toolkit>=3.0.52",
+    "psycopg2>=2.9.11",
+    "rapidfuzz>=3.14.3",
+    "spacy>=3.8.11",
+    "streamlit>=1.52.2",
+    "streamlit-textcomplete>=0.2.0",
+    "textual>=7.0.1",
+]
