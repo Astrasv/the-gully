@@ -1,0 +1,1 @@
+SELECT DISTINCT city FROM ipl_ball_by_ball WHERE city IS NOT NULL;

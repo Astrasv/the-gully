@@ -4,6 +4,7 @@ ipl_json
 .ipynb
 .env
 ipl_data.csv
+ipl_data_full.csv
 single_match.csv
 .ruff_cache
 .pytest_cache

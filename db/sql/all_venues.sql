@@ -1,0 +1,1 @@
+SELECT DISTINCT venue FROM ipl_ball_by_ball WHERE venue IS NOT NULL;
