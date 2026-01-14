@@ -21,7 +21,27 @@ This applications plans to use **discord like tagging** (mentions) mechanism to 
 
 `NOTE: The dataset used is publically available. Please consider upvoting in kaggle. Use this and make more amazing project than mine 😂.`
 
+
 [Kaggle Publically available Dataset link](https://www.kaggle.com/datasets/astrasv247/ipl-dataset-2008-2025-ball-by-ball)
+
+## Showcase
+I have build a dummy frontend using the backedn endpoints (without auth integrations)
+![Dummy fronted](assets/dummy_frontend.png)
+
+This is the man page
+![alt text](assets/man_page.png)
+
+This is the how the discord like tagging mechanism
+![alt text](assets/tag_entity.png)
+![alt text](assets/tag_player.png)
+
+And the question is asked here
+As a hardcore CSK fan I want to know how many wides did Pathirana bowl (As far as I remember most matches were catch practice between dhoni and pathirana 🤣)
+![alt text](assets/query_asked.png)
+
+And there you go. He bowled 13.09% wide. NO wonder pathirana is the GOAT of wides 😂😂
+
+
 
 ## CLI Tool Syntax
 
